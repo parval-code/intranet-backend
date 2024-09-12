@@ -39,7 +39,6 @@
   },
   "dependencies": {
     "@azure/storage-blob": "^12.13.0",
-    "@google-cloud/storage": "^6.7.0",
     "@types/body-parser": "^1.17.0",
     "@types/chai": "^4.2.0",
     "@types/chai-as-promised": "^7.1.2",
@@ -63,7 +62,7 @@
     "express": "~4.15.5",
     "express-fileupload": "^1.4.0",
     "faker": "^4.1.0",
-    "glob": "latest",
+    "glob": "7.1.1",
     "helmet": "^3.9.0",
     "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.21",
