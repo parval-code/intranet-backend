@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    container_name: intranet-backend
+    restart: on-failure:3
+    build: .
+    ports:
+      - '80:80'
+      - '6379:6379'  # Expose the Redis port as well
+    volumes:
+      - ./logs:/app/logs
