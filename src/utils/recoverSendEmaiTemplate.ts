@@ -1,10 +1,11 @@
 import * as fs from 'fs';
 
-interface ICreateTemplateTemplate {
-  name: string;
+interface IVerifyIdentityTemplate {
+  email: string | number;
+  comment?: string;
 }
 
-const CreateTemplateEmail = async (props: ICreateTemplateTemplate) => {
+const VerifyIdentityTemplate = async (props: IVerifyIdentityTemplate) => {
   const template = `<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
     <title></title>
@@ -191,7 +192,7 @@ const CreateTemplateEmail = async (props: ICreateTemplateTemplate) => {
                                                   <br>
                                                     <br>
                                                       <div>
-                                                        <p style="text-align:center;background-color:#f0f0f0;line-height:33px;font-size:1em;color:#303030;">  Nos complace informarte que se ha creado una nueva carpeta de archivos a la cual ahora tienes acceso. Podrás encontrarla en <strong> ${ props.name } </strong> y utilizarla para almacenar y gestionar tus documentos</p>
+                                                        <p style="text-align:center;background-color:#f0f0f0;line-height:33px;font-size:1em;color:#303030;">  Nos complace informarte que se ha creado una nueva carpeta de archivos a la cual ahora tienes acceso. Podrás encontrarla en ${ props.comment } y utilizarla para almacenar y gestionar tus documentos</p>
                                                       </div>                            
                                                     <br>
                                                       <br>
@@ -282,7 +283,7 @@ const CreateTemplateEmail = async (props: ICreateTemplateTemplate) => {
 
   if (template) {
     const writeVisist = fs.createWriteStream(
-      './confirmation-email.html',
+      './verify-identity-template.html',
       {
         flags: 'w',
       },
@@ -293,4 +294,4 @@ const CreateTemplateEmail = async (props: ICreateTemplateTemplate) => {
   }
 };
 
-export default CreateTemplateEmail;
+export default VerifyIdentityTemplate;

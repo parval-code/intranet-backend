@@ -6,6 +6,7 @@ import config from '../../../config/default';
 import { BadRequest } from '../../skeleton/services/errors';
 import UsersPermissionsEntity from '../usersPermissions/usersPermissions.entity';
 import PersonsEntity from '../persons/persons.entity';
+import AssignedUserGroupsEntity from '../assignedUserGroups/assignedUserGroups.entity';
 import DepartmentsEntity from '../departments/departments.entity';
 import IAppProvider from '../../skeleton/services/IAppProvider';
 
@@ -23,9 +24,10 @@ export default class AuthService implements IApplicationService<any> {
 
       let info: any = {};
       let permissions: any = [];
-      let departments: any[] = []
-      
+      let departments: any[] = [];
+
       if (!isEmpty(data) && data.id) {
+
         try {
           info = await queryRunner.manager
             .getRepository(PersonsEntity)
@@ -43,6 +45,17 @@ export default class AuthService implements IApplicationService<any> {
             .getRepository(UsersPermissionsEntity)
             .createQueryBuilder('usersPermissions')
             .andWhere('usersPermissions.userId = :id', { id: userId }).getMany();
+
+          const group: AssignedUserGroupsEntity[] = await queryRunner.manager
+          .getRepository(AssignedUserGroupsEntity)
+          .createQueryBuilder('assignedUserGroups')
+          .andWhere('assignedUserGroups.userId = :id', { id: userId }).getMany();
+
+          if(!isEmpty(group)) {
+            set(data, 'group', group[0].group);
+          } else {
+            set(data, 'group', []);
+          }
             
 
           if(!isEmpty(departments)) {
