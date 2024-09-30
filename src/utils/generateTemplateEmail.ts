@@ -181,7 +181,7 @@ const CreateTemplateEmail = async (props: ICreateTemplateTemplate) => {
                                     </style>
                                     <div class="message">
                                       <p style="text-align:center;">
-                                        <b>Nueva Carpeta de Archivos Creada.
+                                        <b>Se ha agrado una nueva politica.
                                           <br>
                                           <br>
                                         </b>
