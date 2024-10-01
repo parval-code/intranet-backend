@@ -35,7 +35,7 @@ export const SendEmailNewFoldersHandlers = (_app: IAppProvider) =>
                 await Promise.all(persons.map(async (person: PersonsEntity) => {
                   if (isEmpty(grupos)) {
                     await sendMessageForEmail({
-                      email: process.env.NODE_ENV === 'production' ? person.email : 'Luismiguelperez23@gmail.com',
+                      email: process.env.NODE_ENV === 'production' ? person.email : 'jvargas@parval.com.do',
                       subject: 'Confirmación de Carpeta de Archivos',
                       message: 'Confirmación de Carpeta de Archivos',
                       template: templateContentClient,
@@ -50,7 +50,7 @@ export const SendEmailNewFoldersHandlers = (_app: IAppProvider) =>
                     if (!isEmpty(assignedUserGroups)) {
                       if (VerificateEnabledGroup(get(assignedUserGroups, 'group', ['']), grupos)) {
                         await sendMessageForEmail({
-                          email: process.env.NODE_ENV === 'production' ? person.email : 'Luismiguelperez23@gmail.com', 
+                          email: process.env.NODE_ENV === 'production' ? person.email : 'jvargas@parval.com.do', 
                           subject: 'Confirmación de Carpeta de Archivos',
                           message: 'Confirmación de Carpeta de Archivos',
                           template: templateContentClient,
