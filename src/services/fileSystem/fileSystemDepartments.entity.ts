@@ -3,6 +3,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   BaseEntity,
+  VersionColumn
 } from 'typeorm';
 
 @Entity('SistemaArchivo')
@@ -29,6 +30,6 @@ export default class FileSystemDepartmentsEntity extends BaseEntity {
   @Column({ name: 'FechaActualizacion', type: 'datetime' })
   updatedAt: Date;
 
-  @Column({ name: 'Version' })
+  @VersionColumn({ name: 'Version' })
   version: number;
 }

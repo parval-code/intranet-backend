@@ -37,7 +37,7 @@ const config = {
     urlApiParval: 'https://190.166.105.26/pviewRest/PViewISAPI.dll/la/rest/TView',
   },
   tokenAccount: 'Lw$547DrBpUi',
-  emailProduction: 'status@parval.com.do',
+  emailProduction: 'notificaciones360@parval.com.do',
 };
 
 export default config;

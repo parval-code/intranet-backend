@@ -21,13 +21,13 @@ export const sendMessageForEmail = async (infoMessage: MessageForEmailI) =>  {
       port: 587,
       secure: false,
       auth: {
-        user: 'status@parval.com.do',
-        pass: 'Fok43508',
+        user: 'notificaciones360@parval.com.do',
+        pass: 'Y.384359951812az',
       },
     });
 
     const correoOptions: any = {
-      from: infoMessage.user ? infoMessage.user : 'status@parval.com.do',
+      from: infoMessage.user ? infoMessage.user : 'notificaciones360@parval.com.do',
       to: infoMessage.email,
       subject: infoMessage.subject,
       text: infoMessage.message,
