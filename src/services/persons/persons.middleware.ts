@@ -1,6 +1,7 @@
 import { IMiddlewaresSchema } from '../../skeleton/services/IMiddlewaresSchema';
 import validateAuthTokenAccessMiddleware
     from '../../middlewares/validateAuthTokenAccess.middleware';
+import { AddGroupsForUsersMiddleware } from './middlewares/addGroupsForUsers.middleware';
 
 const middlewares: IMiddlewaresSchema = {
   before: {
@@ -13,7 +14,7 @@ const middlewares: IMiddlewaresSchema = {
   },
   after: {
     all: [],
-    find: [],
+    find: [AddGroupsForUsersMiddleware()],
     get: [],
     create: [],
     update: [],

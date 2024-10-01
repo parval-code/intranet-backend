@@ -28,4 +28,7 @@ export default class FileSystemDepartmentsEntity extends BaseEntity {
 
   @Column({ name: 'FechaActualizacion', type: 'datetime' })
   updatedAt: Date;
+
+  @Column({ name: 'Version' })
+  version: number;
 }
